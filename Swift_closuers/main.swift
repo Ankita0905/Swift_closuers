@@ -72,3 +72,34 @@ desc=myArray.sorted (by:>)
 print(desc)
 
 
+// Escaping
+
+func call(completion:@escaping (_:Bool)->Void)
+{
+    sleep(3)
+    completion(false)
+}
+
+print("Start")
+call{
+    (flag) in
+    print("inside block", flag)
+}
+print("End")
+
+//func moreSum(a:Int,b:Int,sumFunc:@escaping (_:Int)->Void)
+//{
+//    sumFunc(a+b)
+//}
+
+func moreSum(sumFunc:@escaping (_:Int)->Void)
+{
+    for x in 1...10
+    {
+    sumFunc(x)
+        sleep(2)
+    }
+}
+moreSum{(y) in
+    print(y)
+}
