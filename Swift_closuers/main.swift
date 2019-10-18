@@ -32,20 +32,6 @@ print(finalResult)
 
 //single expression Implisit
 
-var myArray:[Int]=[5,6,3,4,8]
-
-let sum=myArray.map { (x) -> Int in
-    return x+1
-}
-print(sum)
-
-let desc=myArray.sorted { (n1, n2) -> Bool in
-    return n1>n2
-}
-
-print(desc)
-
-//acsending order of string
 var mAr:[String]=["v","d","a","r"]
 
 let desc1=mAr.sorted { (a1, a2) -> Bool in
@@ -53,3 +39,36 @@ let desc1=mAr.sorted { (a1, a2) -> Bool in
 }
 
 print(desc1)
+
+var myArray:[Int]=[5,6,3,4,8]
+
+let sum=myArray.map { (x) -> Int in
+    return x+1
+}
+print(sum)
+
+let add={
+    (m1:Int,m2:Int)->Bool in
+    return m1<m2
+}
+
+var desc=myArray.sorted { (n1, n2) -> Bool in
+    return n1>n2
+}
+
+print(desc)
+
+desc=myArray.sorted(by: add)
+print(desc)
+
+desc=myArray.sorted { (n1, n2) in
+    return n1>n2
+}
+
+print(desc)
+
+desc=myArray.sorted (by:>)
+
+print(desc)
+
+
